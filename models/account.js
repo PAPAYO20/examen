@@ -4,7 +4,7 @@ const AccountSchema = new Schema({
     account_number: {
         type: String,
         unique: true,
-        required: true
+        default: 0
     },
     client_document: {
         type: String,
@@ -21,7 +21,14 @@ const AccountSchema = new Schema({
         type: String,
         required: true,
         maxlength: [100, 'Max 100 characters']
+    },
+    status: {
+        type: String,
+        enum: ['activo','inactivo']
     }
+
+
 })
+
 
 export default model('Account', AccountSchema)
